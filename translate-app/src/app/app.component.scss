@@ -1,0 +1,40 @@
+.website-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.website-info div {
+    margin-bottom: .5rem;
+}
+
+.label {
+    margin: 0 .5rem;
+}
+
+.input-url {
+    min-width: 4rem;
+    width: 17.5rem;
+}
+
+.input-selector {
+    min-width: 4rem;
+    width: 14rem;
+}
+
+.text-container {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.text-original {
+    border: 1px solid lightgrey;
+    width: calc((100vw - 7rem) / 2);
+    height: calc(100vh - 10rem);
+}
+
+.text-translated {
+    border: 1px solid lightgrey;
+    width: calc((100vw - 7rem) / 2);
+    height: calc(100vh - 10rem);
+}
