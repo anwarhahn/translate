@@ -4,18 +4,25 @@
 <div class="website-info">
   <div>
       <span class="label">URL</span>
-      <input class="input-url" type="text" name="url"/>    
+      <input [(ngModel)]="url" class="input-url" type="text" name="url"/>    
   </div>
 
   <div>
       <span class="label">CSS Selector</span>
-      <input class="input-selector" type="text" name="selector"/>
+      <input [(ngModel)]="selector" class="input-selector" type="text" name="selector"/>
+  </div>
+  <div>
+    <input [(ngModel)]="disableSelector" type="checkbox" />
+    <span>Disable selector</span>
+  </div>
+  <div>
+      <button class="btn" (click)="onTranslateClicked($event)">Translate!</button>
   </div>
 </div>
 
 <div class="text-container">
-  <div class="text-original"></div>
-  <div class="text-translated"></div>
+  <div class="text-original">{{textOriginal}}</div>
+  <div class="text-translated">{{textTranslated}}</div>
 </div>
 
 <router-outlet></router-outlet>
