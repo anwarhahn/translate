@@ -1,0 +1,8 @@
+{
+  "python.pythonPath": "/Users/anwarhahn/.virtualenvs/translate/bin/python",
+  "files.autoSave": "onFocusChange",
+  "files.trimTrailingWhitespace": true,
+  "editor.rulers": [100],
+  "editor.formatOnSave": true,
+  "prettier.trailingComma": "es5"
+}

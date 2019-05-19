@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+__pycache__
 # Only exists if Bazel was run
 /bazel-out
 

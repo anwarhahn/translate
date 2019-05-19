@@ -5,9 +5,6 @@ from tornado.escape import to_basestring
 from tornado.httpclient import AsyncHTTPClient
 from urllib.parse import urlparse
 
-class MainHandler(web.RequestHandler):
-    def get(self):
-        self.write("Hello, world")
 
 class TranslateHandler(web.RequestHandler):
 
@@ -31,7 +28,7 @@ class TranslateHandler(web.RequestHandler):
         selection = soup.body
         if selector:
             selection = soup.select(selector)
-        
+
         if not selection:
             self.finish(None)
             return
@@ -47,9 +44,7 @@ class TranslateHandler(web.RequestHandler):
 
 if __name__ == "__main__":
     application = web.Application([
-        (r"/", MainHandler),
         (r"/translate$", TranslateHandler),
-        # (r"/translate(.*)$", TranslateHandler),
     ], debug=True, autoreload=True, serve_traceback=True)
     application.listen(9000)
     ioloop.IOLoop.instance().start()

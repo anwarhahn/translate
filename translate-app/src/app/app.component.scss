@@ -1,47 +1,47 @@
 .website-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .website-info div {
-    margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .label {
-    margin: 0 .5rem;
+  margin: 0 0.5rem;
 }
 
 .btn {
-    width: 4rem;
-    padding: .25rem;
+  width: 4rem;
+  padding: 0.25rem;
 }
 
 .input-url {
-    min-width: 4rem;
-    width: 17.5rem;
+  min-width: 4rem;
+  width: 17.5rem;
 }
 
 .input-selector {
-    min-width: 4rem;
-    width: 14rem;
+  min-width: 4rem;
+  width: 14rem;
 }
 
 .text-container {
-    display: flex;
-    justify-content: space-between;
-    padding: .5rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
 }
 
 .text-original {
-    border: 1px solid lightgrey;
-    width: calc((100vw - 7rem) / 2);
-    height: calc(100vh - 12rem);
-    overflow: scroll;
+  border: 1px solid lightgrey;
+  width: calc((100vw - 7rem) / 2);
+  height: calc(100vh - 12rem);
+  overflow: scroll;
 }
 
 .text-translated {
-    border: 1px solid lightgrey;
-    width: calc((100vw - 7rem) / 2);
-    height: calc(100vh - 12rem);
-    overflow: scroll;
+  border: 1px solid lightgrey;
+  width: calc((100vw - 7rem) / 2);
+  height: calc(100vh - 12rem);
+  overflow: scroll;
 }
