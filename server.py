@@ -8,6 +8,21 @@ from urllib.parse import urlparse
 
 class TranslateHandler(web.RequestHandler):
 
+    def get_counts(self, data):
+        counts = {
+            'characterCount': None,
+            'wordCount': None,
+            'lineCount': None,
+        }
+
+        if data is None:
+            return counts
+
+        counts['characterCount'] = len(data)
+        counts['wordCount'] = len(data.split())
+        counts['lineCount'] = len(data.splitlines())
+        return counts
+
     async def get(self):
         args = self.request.arguments
         url = to_basestring(args.get('url')[0])
@@ -35,10 +50,13 @@ class TranslateHandler(web.RequestHandler):
         elif isinstance(selection, Tag):
             selection = [selection]
 
-        data = [tag.get_text() for tag in selection]
+        data = ' '.join([tag.get_text() for tag in selection])
         self.finish({
             'translation': None,
-            'original': data
+            'original': {
+                'data': data,
+                'counts': self.get_counts(data),
+            },
         })
 
 

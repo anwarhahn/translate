@@ -2,9 +2,21 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
-export interface Translation {
-  original: string | null;
-  translation: string | null;
+export interface ICounts {
+  characterCount: number;
+  wordCount: number;
+  lineCount: number;
+}
+
+export interface ITranslation {
+  original: {
+    data: string;
+    counts: ICounts;
+  };
+  translation: {
+    data: string;
+    counts: ICounts;
+  };
 }
 
 @Injectable({

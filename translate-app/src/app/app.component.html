@@ -1,27 +1,36 @@
 <h2>
   Enter website information to translate!
 </h2>
-<div class="website-info">
-  <div>
-    <span class="label">URL</span>
-    <input [(ngModel)]="url" class="input-url" type="text" name="url" />
-  </div>
+<div class="details">
+  <div class="website-info">
+    <div>
+      <span class="label">URL</span>
+      <input [(ngModel)]="url" class="input-url" type="text" name="url" />
+    </div>
 
-  <div>
-    <span class="label">CSS Selector</span>
-    <input
-      [(ngModel)]="selector"
-      class="input-selector"
-      type="text"
-      name="selector"
-    />
+    <div>
+      <span class="label">CSS Selector</span>
+      <input
+        [(ngModel)]="selector"
+        class="input-selector"
+        type="text"
+        name="selector"
+      />
+    </div>
+    <div>
+      <input [(ngModel)]="disableSelector" type="checkbox" />
+      <span>Disable selector</span>
+    </div>
+    <div>
+      <button class="btn" (click)="onTranslateClicked($event)">
+        Translate!
+      </button>
+    </div>
   </div>
-  <div>
-    <input [(ngModel)]="disableSelector" type="checkbox" />
-    <span>Disable selector</span>
-  </div>
-  <div>
-    <button class="btn" (click)="onTranslateClicked($event)">Translate!</button>
+  <div class="counts">
+    <span>Character count: {{ characterCount }}</span>
+    <span>Word count: {{ wordCount }}</span>
+    <span>Line count: {{ lineCount }}</span>
   </div>
 </div>
 

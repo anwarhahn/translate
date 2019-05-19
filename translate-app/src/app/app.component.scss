@@ -1,3 +1,14 @@
+.details {
+  display: flex;
+  flex-direction: row;
+}
+
+.counts {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
 .website-info {
   display: flex;
   flex-direction: column;
@@ -28,7 +39,7 @@
 
 .text-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0.5rem;
 }
 
