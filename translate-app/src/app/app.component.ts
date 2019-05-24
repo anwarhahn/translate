@@ -5,6 +5,7 @@ import {
   TranslateService,
   ITranslation,
   ICounts,
+  IDataCounts,
 } from "./translate/translate.service";
 
 @Component({
@@ -26,20 +27,41 @@ export class AppComponent {
   public wordCount: number = 0;
   public lineCount: number = 0;
 
+  public characterCount1: number = 0;
+  public wordCount1: number = 0;
+  public lineCount1: number = 0;
+
   constructor(private translationService: TranslateService) {}
 
-  public onTranslateClicked(): void {
+  public onPageFetchClicked(): void {
     const selector = !this.disableSelector ? this.selector : "";
     this.translationService
-      .translate(this.url, selector)
-      .subscribe((data: ITranslation) => {
-        this.textOriginal = _.get(data, "original.data");
-        this.textTranslated = _.get(data, "translation.data");
-        const counts: ICounts = _.get(data, "original.counts");
+      .pageFetch(this.url, selector)
+      .subscribe((data: IDataCounts) => {
+        this.textOriginal = _.get(data, "data");
+        const counts: ICounts = _.get(data, "counts");
         if (!_.isNil(counts)) {
           this.characterCount = counts.characterCount;
           this.wordCount = counts.wordCount;
           this.lineCount = counts.lineCount;
+        }
+      });
+  }
+
+  public onTranslateClicked(): void {
+    if (_.isNil(this.textOriginal)) {
+      return;
+    }
+
+    this.translationService
+      .translate(this.textOriginal)
+      .subscribe((data: IDataCounts) => {
+        this.textTranslated = _.get(data, "data");
+        const counts: ICounts = _.get(data, "counts");
+        if (!_.isNil(counts)) {
+          this.characterCount1 = counts.characterCount;
+          this.wordCount1 = counts.wordCount;
+          this.lineCount1 = counts.lineCount;
         }
       });
   }

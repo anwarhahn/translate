@@ -22,6 +22,9 @@
       <span>Disable selector</span>
     </div>
     <div>
+      <button class="btn" (click)="onPageFetchClicked($event)">
+        Fetch Page!
+      </button>
       <button class="btn" (click)="onTranslateClicked($event)">
         Translate!
       </button>
@@ -31,6 +34,11 @@
     <span>Character count: {{ characterCount }}</span>
     <span>Word count: {{ wordCount }}</span>
     <span>Line count: {{ lineCount }}</span>
+  </div>
+  <div class="counts">
+    <span>Character count: {{ characterCount1 }}</span>
+    <span>Word count: {{ wordCount1 }}</span>
+    <span>Line count: {{ lineCount1 }}</span>
   </div>
 </div>
 

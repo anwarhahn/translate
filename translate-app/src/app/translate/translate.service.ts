@@ -8,15 +8,14 @@ export interface ICounts {
   lineCount: number;
 }
 
+export interface IDataCounts {
+  data: string;
+  counts: ICounts;
+}
+
 export interface ITranslation {
-  original: {
-    data: string;
-    counts: ICounts;
-  };
-  translation: {
-    data: string;
-    counts: ICounts;
-  };
+  original: IDataCounts;
+  translation: IDataCounts;
 }
 
 @Injectable({
@@ -25,11 +24,19 @@ export interface ITranslation {
 export class TranslateService {
   constructor(private http: HttpClient) {}
 
-  public translate(url: string, selector: string): Observable<any> {
-    return this.http.get("api/translate", {
+  public pageFetch(url: string, selector: string): Observable<IDataCounts> {
+    return this.http.get<IDataCounts>("api/page_fetch", {
       params: {
         url,
         selector,
+      },
+    });
+  }
+
+  public translate(text: string): Observable<IDataCounts> {
+    return this.http.post<IDataCounts>("api/translate", {
+      params: {
+        text,
       },
     });
   }
